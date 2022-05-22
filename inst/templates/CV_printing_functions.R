@@ -161,9 +161,13 @@ print_section <- function(cv, section_id, glue_template = "default"){
     }
   }
 
-  print(glue::glue_data(section_data, glue_template))
+  if (nrow(section_data) > 0) {
+    print(glue::glue_data(section_data, glue_template))
 
-  invisible(strip_res$cv)
+    invisible(strip_res$cv)
+  } else {
+    return(cv);
+  }
 }
 
 
@@ -174,11 +178,15 @@ print_text_block <- function(cv, label){
   text_block <- dplyr::filter(cv$text_blocks, loc == label) %>%
     dplyr::pull(text)
 
-  strip_res <- sanitize_links(cv, text_block)
+  if (length(text_block) > 0) {
+    strip_res <- sanitize_links(cv, text_block)
 
-  cat(strip_res$text)
+    cat(strip_res$text)
 
-  invisible(strip_res$cv)
+    invisible(strip_res$cv)
+  } else {
+    return(cv);
+  }
 }
 
 
