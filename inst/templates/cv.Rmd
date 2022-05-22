@@ -54,7 +54,7 @@ datadrivencv::build_network_logo(CV$entries_data)
 {{/use_network_logo}}
 {{^use_network_logo}}
 <!-- Swap image with your preferred logo -->
-![logo](https://cran.r-project.org/Rlogo.svg){width=100%}
+![logo](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/512px-R_logo.svg.png){width=100%}
 {{/use_network_logo}}
 
 
